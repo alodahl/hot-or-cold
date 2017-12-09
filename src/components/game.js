@@ -12,26 +12,34 @@ export default class Game extends React.Component {
       guesses: [],
       latestGuess: " "
     }
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleChange(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.setState({latestGuess: event.target.value});
+  }
+
   handleSubmit(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        this.setState({latestGuess: event.target.value});
-        console.log("Latest Guess: " + this.state.latestGuess)
-        this.setState({guesses: [...this.state.guesses, this.state.latestGuess]});
-    }
+    event.preventDefault();
+    event.stopPropagation();
+    this.setState({guesses: [...this.state.guesses, this.state.latestGuess]});
+  }
 
   response() {
     const latestGuess = this.state.latestGuess;
     const randomNumber = this.state.randomNumber;
-    console.log(randomNumber);
-    console.log(latestGuess);
-    if (latestGuess === randomNumber) {
+
+    if (latestGuess === " " || "") {
+      return (" ");
+    } else if (latestGuess == randomNumber) {
       return ("You got it!");
-    } else if (latestGuess <= (randomNumber+9) && latestGuess >= (randomNumber-9)) {
+    } else if (latestGuess <= (randomNumber+3) && latestGuess >= (randomNumber-3)) {
       return ("HOT");
+    } else if (latestGuess <= (randomNumber+9) && latestGuess >= (randomNumber-9)) {
+      return ("Very warm");
     } else if (latestGuess <= (randomNumber+19) && latestGuess >= (randomNumber-19)) {
       return ("Warm");
     } else if (latestGuess <= (randomNumber+29) && latestGuess >= (randomNumber-29)) {
@@ -45,7 +53,7 @@ export default class Game extends React.Component {
     return (
       <div>
           <Header />
-          <Form onSubmit={this.handleSubmit}/>
+          <Form onSubmit={this.handleSubmit} onChange={this.handleChange} value={this.state.latestGuess}/>
           <Feedback response={this.response()} guesses={this.state.guesses}/>
       </div>
       )

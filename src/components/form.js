@@ -6,18 +6,18 @@ export default class Form extends React.Component {
     this.state = {
       value: ""
     };
-    this.handleChange = this.handleChange.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(event) {
-    this.setState({value: event.target.value});
-    console.log("New Guess: " + this.state.value);
-  };
+  // handleChange(event) {
+  //   this.setState({value: event.target.value});
+  //   console.log("New Guess: " + event.target.value);
+  // };
 
   render() {
     return (
-        <form onSubmit={this.props.onChange}>
+        <form onSubmit={this.props.onSubmit}>
           <label htmlFor="guess-input">Guess a number between 1 and 100:</label>
-          <input onChange={this.handleChange} value={this.state.value} name="guess-input" placeholder="99"/>
+          <input onChange={this.props.onChange} value={this.props.latestGuess} name="guess-input" placeholder="99"/>
         </form>
     );
   }

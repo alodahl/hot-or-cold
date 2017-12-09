@@ -3,7 +3,7 @@ import React from 'react';
 export default function Feedback(props) {
   let textColor;
   let color = {color: textColor}
-  let winner = "";
+  let winner = " ";
   if (props.response === "You got it!") {
     winner = "rainbow";
   } else if (props.response === "HOT") {
@@ -19,7 +19,7 @@ export default function Feedback(props) {
   return (
   <div>
     <h2 className={winner} style={color}>{props.response}</h2>
-    <p className="user-guesses">Guesses: {props.guesses.reverse}</p>
+    <p className="user-guesses">Guesses: {props.guesses.join(", ")}</p>
   </div>
   )
 }
