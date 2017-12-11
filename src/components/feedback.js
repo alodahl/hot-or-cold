@@ -2,7 +2,6 @@ import React from 'react';
 
 export default function Feedback(props) {
   let textColor;
-  let color = {color: textColor}
   let winner = " ";
   if (props.response === "You got it!") {
     winner = "rainbow";
@@ -15,7 +14,8 @@ export default function Feedback(props) {
   } else {
     textColor = "DodgerBlue";
   }
-
+  let color = {color: textColor};
+  
   return (
   <div>
     <h2 className={winner} style={color}>{props.response}</h2>
