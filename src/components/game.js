@@ -27,6 +27,14 @@ export default class Game extends React.Component {
     this.setState({currentGuess: ""});
   }
 
+  handleNewGameButton() {
+    this.setState({
+          randomNumber: Math.floor(Math.random()*100) + 1,
+          guesses: [],
+          currentGuess: ""
+    })
+  }
+
   response() {
     const latestGuess = this.state.guesses[this.state.guesses.length - 1];
     const randomNumber = this.state.randomNumber;
@@ -54,6 +62,7 @@ export default class Game extends React.Component {
           <Header />
           <Form onSubmit={this.handleSubmit} onChange={this.handleChange} value={this.state.currentGuess}/>
           <Feedback response={this.response()} guesses={this.state.guesses}/>
+          <button onClick={() => this.handleNewGameButton()}>New Game</button>
       </div>
       )
 
