@@ -16,10 +16,10 @@ describe('<Form />', () => {
         const wrapper = shallow(<Form value={num} />);
         expect(wrapper.find('input').prop("value")).toEqual(num);
     });
-    // it('Renders the label value correctly', () => {
-    //     let text = "Guess a number between 1 and 100:";
-    //     const wrapper = shallow(<Form value="88"/>);
-    //     expect(wrapper.props().label).toEqual(text);
-    // });
+    it('Renders the label value correctly', () => {
+        let text = "Guess a number between 1 and 100:";
+        const wrapper = shallow(<Form value="88"/>);
+        expect(wrapper.find("label").text()).toEqual(text);
+    });
 
 });
