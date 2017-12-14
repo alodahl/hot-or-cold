@@ -7,6 +7,8 @@ export default function Feedback(props) {
     winner = "rainbow";
   } else if (props.response === "HOT") {
     textColor = "Red";
+  } else if (props.response === "Very warm") {
+    textColor = "Magenta";
   } else if (props.response === "Warm") {
     textColor = "Orange";
   } else if (props.response === "Cold") {
