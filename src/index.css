@@ -10,10 +10,6 @@ input {
   margin: 10px auto;
 }
 
-.user-guesses:first-child {
-  color: blue;
-}
-
 .rainbow {
    /* Chrome, Safari, Opera */
   -webkit-animation: rainbow 2s infinite;

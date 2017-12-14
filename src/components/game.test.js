@@ -12,6 +12,9 @@ describe('<Game />', () => {
         shallow(<Game />);
     });
 
+    it('Returns the correct response to user input', () => {
+        shallow(<Game />);
+    });
 
 
 });
