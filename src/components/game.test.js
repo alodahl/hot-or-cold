@@ -1,9 +1,5 @@
 import React from 'react';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import {shallow, mount} from 'enzyme';
-
-Enzyme.configure({adapter: new Adapter()});
 
 import Game from './game';
 
@@ -12,9 +8,22 @@ describe('<Game />', () => {
         shallow(<Game />);
     });
 
-    it('Returns the correct response to user input', () => {
-        shallow(<Game />);
+    it('Clears state values when "new game" button is clicked', () => {
+        const wrapper = mount(<Game />);
+        wrapper.instance().setRandomNumber(5);
+        wrapper.instance().setGuesses(4);
+        wrapper.instance().setCurrentGuess(3);
+        wrapper.update();
+        wrapper.find('button').simulate('click');
+        expect(wrapper.state('randomNumber')).not.toEqual(5);
+        expect(wrapper.state('guesses')).toEqual([]);
+        expect(wrapper.state('currentGuess')).toEqual("");
     });
 
-
+    it('Adds user guess input to guesses array on submission', () => {
+        const value = 'Foobar';
+        const wrapper = mount(<Game value={value}/>);
+        wrapper.find('form').simulate('submit');
+        expect(wrapper.find("p").text()).toEqual("Guesses: Foobar");
+    });
 });

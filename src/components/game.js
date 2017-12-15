@@ -10,10 +10,28 @@ export default class Game extends React.Component {
     this.state = {
       randomNumber: newNum,
       guesses: [],
-      currentGuess: ""
+      currentGuess: props.value ? props.value : ""
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  setRandomNumber(num) {
+        this.setState({
+          randomNumber: num,
+        });
+    }
+
+  setGuesses(num) {
+      this.setState({
+          guesses: [num]
+      });
+  }
+
+  setCurrentGuess(num) {
+      this.setState({
+          currentGuess: num
+      });
   }
 
   handleChange(event) {
