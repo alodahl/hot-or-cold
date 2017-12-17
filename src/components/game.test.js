@@ -11,7 +11,7 @@ describe('<Game />', () => {
     it('Clears state values when "new game" button is clicked', () => {
         const wrapper = mount(<Game />);
         wrapper.instance().setRandomNumber(5);
-        wrapper.instance().setGuesses(4);
+        wrapper.instance().addGuessToList(4);
         wrapper.instance().setCurrentGuess(3);
         wrapper.update();
         wrapper.find('button').simulate('click');
