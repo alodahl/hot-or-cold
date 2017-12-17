@@ -23,50 +23,19 @@ export class Game extends React.Component {
       this.props.dispatch(setCurrentGuess(num));
   }
 
-  // constructor(props) {
-  //   super(props);
-  //   this.handleChange = this.handleChange.bind(this);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  // }
-
-  // setRandomNumber(num) {
-  //       this.setState({
-  //         randomNumber: num,
-  //       });
-  //   }
-  //
-  // setGuesses(num) {
-  //     this.setState({
-  //         guesses: [num]
-  //     });
-  // }
-  //
-  // setCurrentGuess(num) {
-  //     this.setState({
-  //         currentGuess: num
-  //     });
-  // }
-
   handleChange(event) {
-    // this.setState({currentGuess: event.target.value});
     this.setCurrentGuess(event.target.value);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     event.stopPropagation();
-    // this.setState({guesses: [...this.state.guesses, this.state.currentGuess]});
-    // this.setState({currentGuess: ""});
     this.addGuessToList(this.props.currentGuess);
+    console.log(this.props.currentGuess);
     this.setCurrentGuess("");
   }
 
   handleNewGameButton() {
-    // this.setState({
-    //       randomNumber: Math.floor(Math.random()*100) + 1,
-    //       guesses: [],
-    //       currentGuess: ""
-    // })
     this.setRandomNumber();
     this.clearGuessesList();
     this.setCurrentGuess("")
@@ -97,7 +66,7 @@ export class Game extends React.Component {
     return (
       <div>
           <Header />
-          <Form onSubmit={() => this.handleSubmit()} onChange={(e) => this.handleChange(e)} value={this.props.currentGuess}/>
+          <Form onSubmit={e => this.handleSubmit(e)} onChange={e => this.handleChange(e)} value={this.props.currentGuess}/>
           <Feedback response={this.response()} guesses={this.props.guesses}/>
           <button onClick={() => this.handleNewGameButton()}>New Game</button>
       </div>
@@ -109,7 +78,7 @@ export class Game extends React.Component {
 const mapStateToProps = state => ({
   randomNumber: state.randomNumber,
   guesses: state.guesses,
-  currentGuess: "" //this.props.value ? this.props.value : state.currentGuess || ""
+  currentGuess: state.currentGuess //this.props.value ? this.props.value : state.currentGuess || ""
 });
 
 export default connect(mapStateToProps)(Game);

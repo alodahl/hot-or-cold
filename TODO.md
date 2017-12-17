@@ -2,8 +2,6 @@
 
 ## Incomplete Tasks:
 
-- fix empty currentGuess bug
-
 ---------------------
 
 # Complete Tasks:
@@ -16,3 +14,5 @@
 - import action names to game.js
 - create action dispatch functions in game.js
 - replace state references with props
+- fix empty currentGuess bug
+- fix empty handleSubmit bug
