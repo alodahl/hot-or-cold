@@ -18,5 +18,5 @@ describe('<Form />', () => {
         let text = "Guess a number between 1 and 100:";
         const wrapper = shallow(<Form value="88"/>);
         expect(wrapper.find("label").text()).toEqual(text);
-    });  
+    });
 });
