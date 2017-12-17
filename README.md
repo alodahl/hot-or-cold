@@ -5,5 +5,5 @@
 ---------------------
 ## Technologies Used
 
-This game uses ReactJS and Redux with Enzyme tests.
+"Hot or Cold" uses ReactJS and Redux with Enzyme testing.
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
