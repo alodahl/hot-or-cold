@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Form from './form';
 import Feedback from './feedback';
 import Header from './header';
-
 import {newGame, addGuessToList, setCurrentGuess} from '../actions';
 
 export class Game extends React.Component {
@@ -20,28 +19,6 @@ export class Game extends React.Component {
     this.props.dispatch(newGame());
   }
 
-  response() {
-    const latestGuess = this.props.guesses ? this.props.guesses[this.props.guesses.length - 1] : "";
-    const randomNumber = this.props.randomNumber;
-    const difference =  Math.abs(latestGuess - randomNumber)
-
-    if (!latestGuess) {
-      return ("");
-    } else if ( difference===0 ) {
-      return ("You got it!");
-    } else if ( difference<=3) {
-      return ("HOT");
-    } else if ( difference <=9 ) {
-      return ("Very warm");
-    } else if ( difference <=19) {
-      return ("Warm");
-    } else if (difference <=29) {
-      return ("Cold");
-    } else {
-      return ("Very Cold");
-    }
-  }
-
   render () {
     return (
       <div>
@@ -50,11 +27,10 @@ export class Game extends React.Component {
                 onChange={event => this.props.dispatch(setCurrentGuess(event.target.value))}
                 value={this.props.currentGuess}
           />
-          <Feedback response={this.response()} guesses={this.props.guesses}/>
+        <Feedback randomNumber={this.props.randomNumber} guesses={this.props.guesses}/>
           <button onClick={() => this.handleNewGameButton()}>New Game</button>
       </div>
       )
-
   }
 }
 
