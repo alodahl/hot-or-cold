@@ -63,6 +63,7 @@ export class Game extends React.Component {
   }
 
   render () {
+    console.log(this.response());
     return (
       <div>
           <Header />

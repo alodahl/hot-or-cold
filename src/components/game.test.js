@@ -16,6 +16,14 @@ describe('<Game />', () => {
     shallow(<Game dispatch={dispatch}/>);
   });
 
+  it('Renders the correct response to a user guess', () => {
+    const num = 5;
+    const wrapper = shallow(<Game randomNumber={num} guesses={[4, 9]} dispatch={dispatch}/>);
+    const instance = wrapper.instance();
+    instance.response();
+    expect(instance.response()).toEqual("Very warm");
+  });
+
   it('Dispatches setRandomNumber from setRandomNumber()', () => {
         const num = 11;
         const dispatch = jest.fn();

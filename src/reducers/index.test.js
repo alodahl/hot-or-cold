@@ -8,6 +8,9 @@ describe('gameReducer', () => {
         expect(state.guesses).toEqual([]);
         expect(state.currentGuess).toEqual("");
         expect(state.randomNumber <= 100 && state.randomNumber >= 1).toEqual(true);
+        // alternative assertions:
+        // expect(state.randomNumber).toBeGreaterThanOrEqual(0);
+        // expect(state.randomNumber).toBeLessThanOrEqual(100);
     });
 
     it('Should return the current state on an unknown action', () => {
