@@ -14,3 +14,4 @@ describe('<Header />', () => {
         expect(wrapper.find("h1").text()).toEqual(text);
     });
 });
+ 

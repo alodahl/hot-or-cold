@@ -21,7 +21,7 @@ export default function Feedback(props) {
   return (
   <div>
     <h2 className={winner} style={color}>{props.response}</h2>
-    <p className="user-guesses">Guesses: {props.guesses.join(", ")}</p>
+    <p className="user-guesses">Guesses: {props.guesses ? props.guesses.join(", ") : ""}</p>
   </div>
   )
 }

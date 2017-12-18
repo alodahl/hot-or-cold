@@ -42,7 +42,7 @@ export class Game extends React.Component {
   }
 
   response() {
-    const latestGuess = this.props.guesses[this.props.guesses.length - 1];
+    const latestGuess = this.props.guesses ? this.props.guesses[this.props.guesses.length - 1] : "";
     const randomNumber = this.props.randomNumber;
 
     if (!latestGuess) {

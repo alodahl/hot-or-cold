@@ -1,10 +1,6 @@
 # Hot or Cold TO-DO:
 
 ## Incomplete Tasks:
-- add or edit tests in feedback.test.js
-- add or edit tests in form.test.js
-- add or edit tests in header.test.js
-- add or edit tests in game.test.js
 
 ---------------------
 
@@ -25,3 +21,7 @@
 ### Convert tests for Redux:
 - add tests for src/actions/index.js
 - add tests for src/reducers/index.js
+- add or edit tests in game.test.js
+- add or edit tests in feedback.test.js
+- add or edit tests in form.test.js
+- add or edit tests in header.test.js
