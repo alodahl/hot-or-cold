@@ -1,5 +1,5 @@
 import {gameReducer} from './index';
-import {SET_RANDOM_NUMBER, setRandomNumber, ADD_GUESS_TO_LIST, addGuessToList, CLEAR_GUESSES_LIST, clearGuessesList, SET_CURRENT_GUESS, setCurrentGuess} from '../actions';
+import {NEW_GAME, newGame, setRandomNumber, ADD_GUESS_TO_LIST, addGuessToList, CLEAR_GUESSES_LIST, clearGuessesList, SET_CURRENT_GUESS, setCurrentGuess} from '../actions';
 
 describe('gameReducer', () => {
 
@@ -19,15 +19,6 @@ describe('gameReducer', () => {
         expect(state).toBe(currentState);
     });
 
-    describe('setRandomNumber', () => {
-        it('Should replace randomNumber', () => {
-            let state;
-            state = gameReducer(state, setRandomNumber(4));
-            state = gameReducer(state, setRandomNumber(44));
-            expect(state.randomNumber).toEqual(44);
-        });
-    });
-
     describe('addGuessToList', () => {
         it('Should add new guesses', () => {
             let state;
@@ -38,14 +29,14 @@ describe('gameReducer', () => {
         });
     });
 
-    describe('clearGuessesList', () => {
+    describe('newGame', () => {
         it('Should replace guesses with empty array', () => {
-            let state= {
+            let state = {
               randomNumber: 5,
               guesses: [6],
               currentGuess: 7
             };
-            state = gameReducer(state, clearGuessesList());
+            state = gameReducer(state, newGame());
             expect(state.guesses).toEqual([]);
         });
     });

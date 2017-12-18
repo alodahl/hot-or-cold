@@ -18,13 +18,17 @@ export class Game extends React.Component {
   handleNewGameButton() {
     this.props.dispatch(newGame());
   }
+  setCurrentGuess(num){
+    this.props.dispatch(setCurrentGuess(num))
+  }
+
 
   render () {
     return (
       <div>
           <Header />
           <Form onSubmit={e => this.handleSubmit(e)}
-                onChange={event => this.props.dispatch(setCurrentGuess(event.target.value))}
+                onChange={e => setCurrentGuess(e.target.value)}
                 value={this.props.currentGuess}
           />
         <Feedback randomNumber={this.props.randomNumber} guesses={this.props.guesses}/>

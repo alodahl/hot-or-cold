@@ -1,11 +1,9 @@
-import {SET_RANDOM_NUMBER, setRandomNumber, ADD_GUESS_TO_LIST, addGuessToList, CLEAR_GUESSES_LIST, clearGuessesList, SET_CURRENT_GUESS, setCurrentGuess} from './index';
+import {SET_RANDOM_NUMBER, setRandomNumber, ADD_GUESS_TO_LIST, addGuessToList, NEW_GAME, newGame, SET_CURRENT_GUESS, setCurrentGuess} from './index';
 
-describe('setRandomNumber', () => {
+describe('New Game', () => {
     it('Should return the action', () => {
-        const num = 90;
-        const action = setRandomNumber(num);
-        expect(action.type).toEqual(SET_RANDOM_NUMBER);
-        expect(action.num).toEqual(num);
+        const action = newGame();
+        expect(action.type).toEqual(NEW_GAME);
     });
 });
 
@@ -15,13 +13,6 @@ describe('addGuessToList', () => {
         const action = addGuessToList(num);
         expect(action.type).toEqual(ADD_GUESS_TO_LIST);
         expect(action.num).toEqual(num);
-    });
-});
-
-describe('clearGuessesList', () => {
-    it('Should return the action', () => {
-        const action = clearGuessesList();
-        expect(action.type).toEqual(CLEAR_GUESSES_LIST);
     });
 });
 
