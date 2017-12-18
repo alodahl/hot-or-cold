@@ -7,19 +7,16 @@ const initialState = {
 };
 
 export const gameReducer = (state=initialState, action) => {
-    if (action.type === actions.SET_RANDOM_NUMBER) {
+    if (action.type === actions.NEW_GAME) {
         return Object.assign({}, state, {
-            randomNumber: action.num || Math.floor(Math.random()*100) + 1
+            randomNumber: Math.floor(Math.random()*100) + 1,
+            guesses: []
         });
     }
     else if (action.type === actions.ADD_GUESS_TO_LIST) {
             return Object.assign({}, state, {
-                guesses: [...state.guesses, action.num]
-            });
-    }
-    else if (action.type === actions.CLEAR_GUESSES_LIST) {
-            return Object.assign({}, state, {
-                guesses: []
+                guesses: [...state.guesses, action.num],
+                currentGuess:""
             });
     }
     else if (action.type === actions.SET_CURRENT_GUESS) {
